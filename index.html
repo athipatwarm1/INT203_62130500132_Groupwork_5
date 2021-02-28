@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <p class="text-center text-3xl mb-2">{{header}}({{countImage}})(Favourite {{countUndone}}
+      <span class="material-icons text-red-400">
+      favorite
+      </span>)</p>
+
+    <!--task-search-->
+    <task-search :tasks="tasks" @searching="searching"></task-search><br>
+    
+    <!--task-view-->
+    <task-view @show-image="showImage" :showing-image="showingImage" :current-index="currentIndex"
+    :search-image="searchImage" @hide-image="hideImage"></task-view>
+    
+    <!--task-item-->
+    <task-item :tasks="tasks" :search-image="searchImage" @show-image="showImage" :search-finding="searchFinding">
+    </task-item>
+
+  </div>
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+  <script src="./components/PhotoSearch.js"></script>
+  <script src="./components/PhotoView.js"></script>
+  <script src="./components/PhotoItem.js"></script>
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+
+</html>
